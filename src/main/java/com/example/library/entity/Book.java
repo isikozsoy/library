@@ -23,11 +23,12 @@ public class Book {
     private  String title;
 
     @ManyToOne
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @JoinColumn(name = "author_id", referencedColumnName = "id", nullable = false)
     private Author author;
 
     @Column(name = "pub_year", nullable = false)
-    private int pubYear;
+    @ColumnDefault("-1")
+    private int pubYear = -1;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "genre", nullable = false)

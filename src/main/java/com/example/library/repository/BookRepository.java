@@ -10,6 +10,8 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     //JPA contains API for basic CRUD operations and also API for pagination and sorting
     List<Book> findByTitleIgnoreCaseContains(String title);
 
+    List<Book> findByAuthorId(int authorId);
+
     Book findByTitleIgnoreCaseAndPubYearAndAuthorId(String title, int pubYear, int authorId);
 
     List<Book> findByAuthorFullNameIgnoreCaseContains(String fullName);

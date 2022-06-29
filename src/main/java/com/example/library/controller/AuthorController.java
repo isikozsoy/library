@@ -34,8 +34,8 @@ public class AuthorController {
     }
 
     @GetMapping("/authorByNationality/{nationality}")
-    public List<Author> findAuthorByNationality(@PathVariable String nat) {
-        return service.getAuthorByNationality(nat);
+    public List<Author> findAuthorByNationality(@PathVariable String nationality) {
+        return service.getAuthorByNationality(nationality);
     }
 
     @PutMapping("/updateAuthor")

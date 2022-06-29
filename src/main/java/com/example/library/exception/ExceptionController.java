@@ -15,7 +15,7 @@ public class ExceptionController {
 
     @ExceptionHandler(value = AuthorNotProvidedException.class)
     public ResponseEntity<Object> exception(AuthorNotProvidedException exception) {
-        return new ResponseEntity<>("Author not provided!", HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>("Author not provided!", HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(value = BookNotFoundException.class)
@@ -36,5 +36,10 @@ public class ExceptionController {
     @ExceptionHandler(value = BookCopyCountNotValidException.class)
     public ResponseEntity<Object> exception(BookCopyCountNotValidException exception) {
         return new ResponseEntity<>("The number of copies are less than the number of loaned books!", HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = ParametersMissingException.class)
+    public ResponseEntity<Object> exception(ParametersMissingException exception) {
+        return new ResponseEntity<>("The required parameters are missing!", HttpStatus.NOT_FOUND);
     }
 }

@@ -17,6 +17,9 @@ public class BookService {
     private final AuthorRepository authorRepository;
 
     public Book saveBook(Book book) {
+        if (book.getTitle() == null || book.getPubYear() == -1 ||  book.getGenre() == null) {
+            throw new ParametersMissingException();
+        }
         if (book.getAuthor() == null) {
             throw new AuthorNotProvidedException();
         }
@@ -127,7 +130,7 @@ public class BookService {
             throw new BookCopyCountNotValidException();
         }
 
-        /** If there is an existing book whose title, author and pub year are the same as the new values,
+        /* If there is an existing book whose title, author and pub year are the same as the new values,
             increase its numOfCopy property by 1 and delete the book with the old values.
             Otherwise, just update the old values with the new values.
          */
