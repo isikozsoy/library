@@ -113,7 +113,7 @@ public class BookService {
             existingBook.setAuthor(book.getAuthor());
             isChanged = true;
         }
-        if (book.getPubYear() != 0 && book.getPubYear() != existingBook.getPubYear()) {
+        if (book.getPubYear() != -1 && book.getPubYear() != existingBook.getPubYear()) {
             existingBook.setPubYear(book.getPubYear());
             isChanged = true;
         }
